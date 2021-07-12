@@ -4,7 +4,12 @@
   "description": "this lixi-cli",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node-dev script/webpack.web.js",
+    "build": "node-dev script/webpack.build.js",
+    "lib": "node-dev script/webpack.lib.js",
+    "mock": "node-dev mock/index.js",
+    "jest": "jest",
+    "server": "node-dev server/bin/www"
   },
   "keywords": [
     "lixi-cli",
@@ -26,7 +31,37 @@
     "commander": "^3.0.1",
     "fs-extra": "^8.1.0",
     "git-clone": "^0.1.0",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.3",
+    "@babel/core": "^7.13.16",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@babel/runtime": "^7.14.6",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "cookie-parser": "^1.4.5",
+    "copy-webpack-plugin": "^8.1.1",
+    "css-loader": "^5.2.4",
+    "enzyme": "^3.11.0",
+    "express": "^4.17.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "jest": "^26.6.3",
+    "morgan": "^1.10.0",
+    "node-dev": "^6.7.0",
+    "node-sass": "^5.0.0",
+    "raw-loader": "^4.0.2",
+    "sass": "^1.32.11",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "ts-jest": "^27.0.0",
+    "typescript": "^4.2.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.35.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "chalk": "^2.4.2",
@@ -34,6 +69,15 @@
     "handlebars": "^4.2.1",
     "inquirer": "^7.0.0",
     "log-symbols": "^3.0.0",
-    "ora": "^4.0.0"
+    "ora": "^4.0.0",
+    "antd": "^3.26.20",
+    "babel-standalone": "^6.26.0",
+    "classnames": "^2.3.1",
+    "codemirror": "^5.61.0",
+    "lixi-ui-react": "0.0.4",
+    "marked": "^2.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0"
   }
 }

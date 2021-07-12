@@ -1,0 +1,15 @@
+.material-wrap{
+  display: flex;
+  padding: 20px;
+  .material-left{
+    width: 200px;
+    flex: none;
+    padding: 10px 0px;
+  }
+  .material-right{
+    flex-grow: 1;
+    background: #ddd;
+    height: calc(100vh - 100px);
+    padding: 10px;
+  }
+}

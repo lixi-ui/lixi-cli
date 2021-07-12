@@ -1,0 +1,37 @@
+.doc {
+    width: calc(100vw - 0px);
+    height: calc(100vh - 20px);
+    position: relative;
+    .doc-left {
+        position: absolute;
+        width: 200px;
+        height: 100%;
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0px 40px;
+            background: url(../../../public/lixi-logo.png);
+            background-size: 120px 120px;
+        }
+        .doc-li {
+            padding: 5px 15px;
+            a {
+                text-decoration: none;
+                font-size: 14px;
+                color: #444;
+                width: 100%;
+                display: inline-block;
+            }
+            .activeClass {
+                color: #fb6638;
+            }
+        }
+    }
+    .doc-right {
+        background: lightblue;
+        margin-left: 200px;
+        height: 100%;
+        padding: 10px;
+        overflow-y: scroll;
+    }
+}

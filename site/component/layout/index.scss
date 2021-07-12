@@ -1,0 +1,23 @@
+.lx-layout{
+  .lx-layout-header{
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+    padding: 0 10px;
+    .lx-layout-menu{
+      position: absolute;
+      top: 0px;
+      right: 17px;
+      .lx-menu-ul{
+        display: flex;
+        .lx-menu-li{
+          padding: 0px 5px;
+        }
+      }
+    }
+
+  }
+  .active-menu{
+    color: #fb6638;
+  }
+}
