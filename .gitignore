@@ -10,7 +10,7 @@ package-lock.json
 
 # dist file
 es
-lib
+# lib
 dist
 changelog.generated.md
 test/coverage
