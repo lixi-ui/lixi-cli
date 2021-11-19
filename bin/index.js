@@ -2,9 +2,10 @@
 const program = require('commander');
 
 program
-    .command('create <projectName>')
-    .action((projectName) => {
-        require('../lib/command/create.js')(projectName);
+    .version('0.0.1', '-v, --version')
+    .command('create <projectName> [type]')
+    .action((projectName, type) => {
+        require('../lib/command/create.js')(projectName, type);
     });
 
 program.parse(process.argv);   

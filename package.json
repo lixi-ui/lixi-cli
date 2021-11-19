@@ -4,12 +4,7 @@
   "description": "this lixi-cli",
   "main": "index.js",
   "scripts": {
-    "start": "node-dev script/webpack.web.js",
-    "build": "node-dev script/webpack.build.js",
-    "lib": "node-dev script/webpack.lib.js",
-    "mock": "node-dev mock/index.js",
-    "jest": "jest",
-    "server": "node-dev server/bin/www"
+    "start": "node-dev bin/index.js"
   },
   "keywords": [
     "lixi-cli",
