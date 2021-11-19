@@ -19,9 +19,6 @@
     "type": "git",
     "url": "git+https://github.com/lixi-ui/lixi-ui-vue.git"
   },
-  "files": [
-    "lib"
-  ],
   "author": "",
   "license": "ISC",
   "bugs": {
