@@ -3,6 +3,15 @@ var webpack = require("webpack");
 
 const { VueLoaderPlugin, default: loader } = require('vue-loader');
 
+let externals = [
+  {
+    vue: {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+    },
+  }
+]
 
 var config = {
   mode:"production",
@@ -12,9 +21,15 @@ var config = {
     publicPath: '/',
     filename: 'index.js',
     libraryTarget: 'umd',
-    library: 'LixiUiVue',
+    library: 'LixiMaterialVue',
     umdNamedDefine: true,
     globalObject: 'typeof self !== \'undefined\' ? self : this',
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.vue', '.json'],
+    alias: {
+      '@lixi': path.join(__dirname , '../src'),
+    },
   },
   module: {
     rules: [
@@ -103,13 +118,14 @@ var config = {
   },
   plugins:[
     new VueLoaderPlugin()
-  ]
+  ],
+  externals
 }
 
-webpack(config, function (err) {
+webpack(config, function (err, data) {
   if(err){
     console.log(err)
   } else {
-    console.log("build ok")
+    console.log("build ok", data)
   }
 })

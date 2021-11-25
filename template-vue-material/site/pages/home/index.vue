@@ -9,11 +9,11 @@
           lixi
         </div>
         <div className="home-inner-content">
-          ui 框架
+          material 材料库
         </div>
         <div className="home-inner-bottom">
-          <span className="home-inner-quick">快速开始</span>
-          <span className="home-inner-github">GITHUB</span>
+          <a className="home-inner-quick" href="http://lingyuanping.top/material/#/doc/introduce">快速开始</a>
+          <a className="home-inner-github" href="https://github.com/lixi-ui/lixi-material-vue">GITHUB</a>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
         项目模块
       </div>
       <div className="home-gist-content">
-        <div className="home-gist-item home-gist-web">
+        <a className="home-gist-item home-gist-web" href="http://lingyuanping.top/web/#/doc/web">
           <div className="home-gist-wrap">
             <div className="home-gist-img home-gist-img-1"></div>
             <div className="home-gist-title">web</div>
@@ -33,8 +33,8 @@
           <div className="home-gist-bottom">
             查看详情
           </div>
-        </div>
-        <div className="home-gist-item home-gist-ui">
+        </a>
+        <a className="home-gist-item home-gist-ui" href="http://lingyuanping.top/vue/#/home">
           <div className="home-gist-wrap">
             <div className="home-gist-img home-gist-img-2"></div>
             <div className="home-gist-title">ui</div>
@@ -45,8 +45,8 @@
           <div className="home-gist-bottom">
             查看详情
           </div>
-        </div>
-        <div className="home-gist-item home-gist-material">
+        </a>
+        <a className="home-gist-item home-gist-material" href="http://lingyuanping.top/material/#/doc/">
           <div className="home-gist-wrap">
             <div className="home-gist-img home-gist-img-3"></div>
             <div className="home-gist-title">material</div>
@@ -57,7 +57,7 @@
           <div className="home-gist-bottom">
             查看详情
           </div>
-        </div>
+        </a>
       </div>
     </div>
     <div className="home-design">
@@ -88,10 +88,10 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
   import "./index.scss";
   // import Logo from '../../assets/lixi-logo.png';
-  var a: number = 123;
+
   export default {
     name: 'Home',
     data(){

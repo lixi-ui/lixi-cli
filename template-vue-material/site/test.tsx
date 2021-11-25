@@ -1,6 +1,5 @@
 import { h } from 'vue';
 
-var a: number = 1;
 var test = {
   data(){
     return {

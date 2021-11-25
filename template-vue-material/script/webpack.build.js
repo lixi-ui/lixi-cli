@@ -3,9 +3,11 @@ var webpack = require("webpack");
 
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 const { VueLoaderPlugin, default: loader } = require('vue-loader');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 
 var config = {
-  mode:"development",
+  mode:"production",
   entry: [
     './site/index.js'
   ],
@@ -13,10 +15,19 @@ var config = {
     path: path.resolve(process.cwd() , './dist'),
     // path: path.join(__dirname, "dist"),
     filename: 'index.js',
-    publicPath: '/',
+    publicPath: '/material/',
     environment: {
       arrowFunction: false
     }
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.vue', '.json'],
+    alias: {
+      // vue: `vue/dist/${vueBundle}`,
+      'vue': path.resolve(__dirname, '../node_modules/vue/dist/vue.esm-browser.prod.js'),
+      '@lixi': path.join(__dirname , '../src'),
+      '@site': path.join(__dirname , '../site')
+    },
   },
   module: {
     rules: [
@@ -70,7 +81,7 @@ var config = {
       {
         test: /\.(scss|css)$/,
         use: [
-          "style-loader",
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
@@ -81,7 +92,7 @@ var config = {
         ]
       },
       {
-        test: /\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
+        test: /\.(otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
         use: [
           {
             loader: 'url-loader',
@@ -100,6 +111,13 @@ var config = {
           //   }
           // },
         ]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        options: {
+          symbolId: 'icon-[name]'
+        }
       }
     ]
   },
@@ -109,7 +127,15 @@ var config = {
       filename: './index.html',
       favicon: './public/lixi-logo.png'
     }),
-    new VueLoaderPlugin()
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: JSON.stringify(true),
+      __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
+    })
   ]
 }
 

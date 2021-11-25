@@ -12,10 +12,10 @@
       {{ name }}
     </div>
     <lx-button/>
-    <lx-tree/>
   </div>
   <script>
     export default {
+      id: 'Md11',
       name: 'Md11',
       data() {
         return {

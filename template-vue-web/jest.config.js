@@ -2,14 +2,15 @@ module.exports = {
   roots: [
     "<rootDir>/src"
   ],
-  testEnvironment: "node",
+  testEnvironment: "jsdom",
   testMatch: [
-    "**/__tests__/**/*.[jt]s?(x)",
-    "**/?(*.)+(spec|test).[tj]s?(x)"
+    "**/row/__tests__/**/*.[jt]s?(x)",
+    // "**/__tests__/**/*.[jt]s?(x)",
+    // "**/?(*.)+(spec|test).[tj]s?(x)"
   ],
   "moduleFileExtensions": [
-    "js",
     "ts",
+    "js",
     "json",
     // 告诉 Jest 处理 `*.vue` 文件
     "vue"
@@ -17,6 +18,24 @@ module.exports = {
   "transform": {
     // 用 `vue-jest` 处理 `*.vue` 文件
     ".*\\.(vue)$": "vue-jest",
-    '\\.(js|jsx|ts|tsx)$': 'babel-jest',
+    '\\.(js|jsx|ts|tsx)$': [
+      'babel-jest', {
+        presets: [
+          [
+            '@babel/preset-env',
+            {
+              targets: {
+                node: true,
+              },
+            },
+          ],
+          '@babel/preset-typescript',
+        ],
+        plugins: [
+          '@vue/babel-plugin-jsx',
+          // '@babel/plugin-proposal-class-properties',
+        ]
+      }
+    ]
   }
 };

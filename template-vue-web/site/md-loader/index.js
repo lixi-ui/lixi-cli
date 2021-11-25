@@ -10,9 +10,9 @@ module.exports = function(source) {
 
   const content = md.render(source);
 
-  const startTag = '<!--element-demo:'
+  const startTag = '<!--lixi-demo:'
   const startTagLen = startTag.length
-  const endTag = ':element-demo-->'
+  const endTag = ':lixi-demo-->'
   const endTagLen = endTag.length
 
   let componenetsString = ''
@@ -29,8 +29,8 @@ module.exports = function(source) {
     const html = stripTemplate(commentContent)
     const script = stripScript(commentContent)
     let demoComponentContent = genInlineComponentText(html, script)
-    const demoComponentName = `element-demo${id}`
-    output.push(`<template><${demoComponentName} /></template>`)
+    const demoComponentName = `lixi-demo${'_'+id}`
+    output.push(`<template #source><${demoComponentName} /></template>`)
     componenetsString += `${JSON.stringify(demoComponentName)}: ${demoComponentContent},`
 
     // 重新计算下一次的位置
@@ -42,13 +42,12 @@ module.exports = function(source) {
 
   // 仅允许在 demo 不存在时，才可以在 Markdown 中写 script 标签
   // todo: 优化这段逻辑
-
   let pageScript = ''
   if (componenetsString) {
-    pageScript = `<script lang="ts">
+    pageScript = `<script>
       import * as Vue from 'vue';
       export default {
-        name: 'component-doc',
+        name: 'component-doc-${ new Date().getTime() }',
         components: {
           ${componenetsString}
         }
@@ -61,15 +60,13 @@ module.exports = function(source) {
 
   output.push(content.slice(start))
   
-  // console.log("content------------>", content);
-
   const result = `
     <template>
       <section >
-        ${output.join('')}
+      ${output.join('')}
       </section>
     </template>
     ${pageScript}
-    `
+  `
   return result
 }

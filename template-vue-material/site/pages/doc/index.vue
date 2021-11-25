@@ -1,37 +1,32 @@
 <template>
   <div class = "doc div page-container">
-    <div class = "doc-left" >
+    <div class = "doc-left lx-scroll-doc" >
       <div class = "logo" >
       </div> 
       <ul>
-        <li class="doc-li" >
-            <router-link to="/doc/button" activeClass='active-menu'>button</router-link>
-            <!-- <router-link to="/material/lixi-material-vue/doc/button" activeClass='active-menu'>button</router-link> -->
-        </li> 
-        <li class="doc-li">
-            <router-link to="/doc/tree" activeClass='active-menu'>tree</router-link>
-            <!-- <router-link to="/material/lixi-material-vue/doc/tree" activeClass='active-menu'>tree</router-link> -->
-        </li> 
-        <li class="doc-li" >
-            <!-- <NavLink to="/doc/input" activeClass='activeClass'> input 输入框 </NavLink> -->
-        </li>
-        <li class = "doc-li" >
-            <!-- <NavLink to="/doc/tree" activeClass='activeClass'> tree 树型结构 </NavLink> -->
+        <li class="doc-li" v-for="(item, index) in docRouter" :key="index">
+          <router-link :to="item.path" activeClass='active-menu'>{{ item.title }}</router-link>
         </li>
       </ul> 
     </div> 
-    <div class = "doc-right div content">
+    <div class = "doc-right div content lx-scroll-doc">
       <router-view></router-view>
     </div> 
   </div>
+
 </template>
 
 <script>
-import Md from './index.md';
 import "./index.scss";
+import docRouter from './doc-router';
+
+console.log('docRouter', docRouter)
 export default {
-  components:{
-    Md
+  name: 'MaterilDov',
+  data: () => {
+    return {
+      docRouter
+    }
   }
 }
 </script>

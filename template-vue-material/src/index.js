@@ -1,12 +1,7 @@
-import Button from './components/button/package/index';
-import Tree from './components/tree/package/index';
+import components from './components.ts'
 
 import './style/src/index.scss'
 
-var components = {
-  Button,
-  Tree
-}
 
 var install = function (Vue) {
   Object.keys(components).forEach((key)=>{

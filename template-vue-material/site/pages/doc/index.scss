@@ -7,6 +7,7 @@
     position: absolute;
     // background: lightgreen;
     width: 200px;
+    overflow: auto;
     height: 100%;
     .logo {
       width: 120px;
@@ -174,6 +175,10 @@ textarea {
       font-size: 14px;
       color: #5e6d82;
       line-height: 2em;
+    }
+
+    .lx-pager {
+      margin: 0px !important;
     }
   }
 }
